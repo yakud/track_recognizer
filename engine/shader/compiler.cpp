@@ -4,7 +4,9 @@
 
 #include "compiler.h"
 
-std::tuple<GLuint, engine::Error *> engine::shader::Compiler::Compile(GLenum shaderType, const GLchar *shaderSource) {
+using namespace engine::shader;
+
+std::tuple<GLuint, std::optional<engine::Error>> Compiler::Compile(GLenum shaderType, const GLchar *shaderSource) {
     GLuint shader;
     GLint success;
     GLchar infoLog[512];
@@ -17,9 +19,8 @@ std::tuple<GLuint, engine::Error *> engine::shader::Compiler::Compile(GLenum sha
     if(success != GL_TRUE) {
         glGetShaderInfoLog(shader, 512, nullptr, infoLog);
         std::string message = "ERROR::SHADER::COMPILATION_FAILED " + std::string(infoLog);
-        Error err = engine::Error(1, message);
-        return {0, &err};
+        return {0, engine::Error(1, message)};
     };
 
-    return {shader, nullptr};
+    return {shader, std::nullopt};
 }
