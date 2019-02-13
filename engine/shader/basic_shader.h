@@ -1,6 +1,8 @@
 //
 // Created by yakud on 2019-02-09.
 //
+#ifndef TRACK_RECOGNIZER_BASIC_SHADER_H
+#define TRACK_RECOGNIZER_BASIC_SHADER_H
 
 #include <error.h>
 #include "shader.h"
@@ -26,3 +28,5 @@ engine::Error *InitBasicShader(Shader *shader) {
 };
 
 }}
+
+#endif //TRACK_RECOGNIZER_BASIC_SHADER_H

@@ -4,13 +4,15 @@
 
 #include "shader.h"
 
-engine::shader::Shader::Shader(Loader *loader, Compiler *compiler) {
+using namespace engine::shader;
+
+Shader::Shader(Loader *loader, Compiler *compiler) {
     this->loader = loader;
     this->compiler = compiler;
     this->program = glCreateProgram();
 }
 
-engine::Error *engine::shader::Shader::AddShader(GLenum shaderType, const GLchar *shaderPath) {
+engine::Error *Shader::AddShader(GLenum shaderType, const GLchar *shaderPath) {
     auto [shaderCode, errLoad] = this->loader->Load(shaderPath);
     if (errLoad != nullptr) {
         return errLoad;
@@ -26,7 +28,7 @@ engine::Error *engine::shader::Shader::AddShader(GLenum shaderType, const GLchar
     return nullptr;
 }
 
-engine::Error * engine::shader::Shader::Link() {
+engine::Error * Shader::Link() {
     GLint success;
 
     glLinkProgram(this->program);
@@ -43,11 +45,11 @@ engine::Error * engine::shader::Shader::Link() {
     return nullptr;
 }
 
-void engine::shader::Shader::Use() {
+void Shader::Use() {
     glUseProgram(this->program);
 }
 
-GLuint engine::shader::Shader::Program() {
+GLuint Shader::Program() {
     return this->program;
 }
 

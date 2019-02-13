@@ -2,8 +2,8 @@
 // Created by yakud on 2019-02-11.
 //
 
-#ifndef TRACK_RECOGNIZER_OBJLOADER_H
-#define TRACK_RECOGNIZER_OBJLOADER_H
+#ifndef TRACK_RECOGNIZER_MESH_LOADER_H
+#define TRACK_RECOGNIZER_MESH_LOADER_H
 
 #include <string>
 #include <sstream>
@@ -26,4 +26,4 @@ public:
 }};
 
 
-#endif //TRACK_RECOGNIZER_OBJLOADER_H
+#endif //TRACK_RECOGNIZER_MESH_LOADER_H

@@ -23,7 +23,7 @@
 #include <fstream>
 
 // Math.h - STD math Library
-#include <cmath.h>
+#include <math.h>
 
 // Print progress to console while loading (large models)
 #define OBJL_CONSOLE_OUTPUT
