@@ -6,7 +6,7 @@
 #include <sstream>
 #include "loader.h"
 
-std::tuple<const GLchar *, engine::Error *> engine::shader::Loader::Load(const GLchar* shaderPath) {
+std::tuple<const GLchar *, std::optional<engine::Error>> engine::shader::Loader::Load(const GLchar* shaderPath) {
     std::string shaderCode;
     std::ifstream shaderFile;
 
@@ -20,9 +20,9 @@ std::tuple<const GLchar *, engine::Error *> engine::shader::Loader::Load(const G
         shaderCode = shaderStream.str();
     } catch(std::ifstream::failure e) {
         std::string message = "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ: " + std::string(e.what());
-        return {nullptr, new engine::Error(1, message)};
+        return {nullptr, engine::Error(1, message)};
     }
 
-    return {shaderCode.c_str(), nullptr};
+    return {shaderCode.c_str(), std::nullopt};
 }
 

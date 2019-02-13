@@ -15,9 +15,9 @@
 #include <stdio.h>
 #include <chrono>
 
+#include <primitive/mesh_loader.h>
 #include <shader/shader.h>
 #include <shader/basic_shader.h>
-#include <primitive/meshLoader.h>
 #include <primitive/model.h>
 #include <primitive/camera.h>
 
@@ -59,7 +59,7 @@ int main()
     auto compiler = new shader::Compiler();
     auto basicShader = new shader::Shader(shaderLoader, compiler);
 
-    if (auto err = InitBasicShader(basicShader); err != nullptr) {
+    if (auto err = InitBasicShader(basicShader); err) {
         printf("%s", err->Message.c_str());
         glfwTerminate();
     }
@@ -67,7 +67,7 @@ int main()
     /* Load mesh */
     auto meshLoader = new primitive::MeshLoader();
     auto [mesh, err] = meshLoader->LoadObj("res/model/monk.obj");
-    if (err != nullptr) {
+    if (err) {
         printf("%s", err->Message.c_str());
         glfwTerminate();
     };

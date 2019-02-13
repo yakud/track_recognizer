@@ -3,8 +3,8 @@
 // https://github.com/Bly7/OBJ-Loader
 //
 
-#ifndef TRACK_RECOGNIZER_OBJLOADERBLY7_H
-#define TRACK_RECOGNIZER_OBJLOADERBLY7_H
+//#ifndef TRACK_RECOGNIZER_OBJ_LOADER_BLY7_H
+//#define TRACK_RECOGNIZER_OBJ_LOADER_BLY7_H
 
 // OBJ_Loader.h - A Single Header OBJ Model Loader
 
@@ -1174,4 +1174,4 @@ namespace objl
     };
 }
 
-#endif //TRACK_RECOGNIZER_OBJLOADERBLY7_H
+//#endif //TRACK_RECOGNIZER_OBJ_LOADER_BLY7_H

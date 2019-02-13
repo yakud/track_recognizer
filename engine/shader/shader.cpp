@@ -12,23 +12,23 @@ Shader::Shader(Loader *loader, Compiler *compiler) {
     this->program = glCreateProgram();
 }
 
-engine::Error *Shader::AddShader(GLenum shaderType, const GLchar *shaderPath) {
+std::optional<engine::Error> Shader::AddShader(GLenum shaderType, const GLchar *shaderPath) {
     auto [shaderCode, errLoad] = this->loader->Load(shaderPath);
-    if (errLoad != nullptr) {
+    if (errLoad) {
         return errLoad;
     }
 
     auto [shader, errCompile] = this->compiler->Compile(shaderType, shaderCode);
-    if (errCompile != nullptr) {
+    if (errCompile) {
         return errCompile;
     }
 
     glAttachShader(this->program, shader);
 
-    return nullptr;
+    return std::nullopt;
 }
 
-engine::Error * Shader::Link() {
+std::optional<engine::Error> Shader::Link() {
     GLint success;
 
     glLinkProgram(this->program);
@@ -39,10 +39,10 @@ engine::Error * Shader::Link() {
         glGetProgramInfoLog(this->program, 512, nullptr, infoLog);
         std::string message = "ERROR::SHADER::PROGRAM::LINKING_FAILED: " + std::string(infoLog);
 
-        return new Error(1, message);
+        return Error(1, message);
     }
 
-    return nullptr;
+    return std::nullopt;
 }
 
 void Shader::Use() {

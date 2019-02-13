@@ -29,9 +29,9 @@ protected:
 public:
     Shader(Loader *loader, Compiler *compiler);
 
-    engine::Error *AddShader(GLenum shaderType, const GLchar *shaderPath);
+    std::optional<engine::Error> AddShader(GLenum shaderType, const GLchar *shaderPath);
 
-    engine::Error *Link();
+    std::optional<engine::Error> Link();
 
     void Use();
 

@@ -7,7 +7,7 @@
 
 #include <GL/glew.h>
 #include <optional>
-#include "../error.h"
+#include <error.h>
 
 namespace engine { namespace shader {
 

@@ -39,7 +39,7 @@ add_executable(track_recognizer
         engine/shader/loader.cpp engine/shader/loader.h
         engine/shader/compiler.cpp engine/shader/compiler.h
         engine/error.cpp engine/error.h
-        engine/shader/basic_shader.h engine/primitive/mesh.h engine/primitive/meshLoader.cpp engine/primitive/meshLoader.h engine/primitive/objLoaderBly7.h engine/primitive/texture.h engine/mesh/vertex.h engine/mesh/texture.h engine/primitive/entity.h engine/primitive/camera.h engine/primitive/model.cpp engine/primitive/model.h engine/primitive/camera.cpp engine/primitive/entity.cpp)
+        engine/shader/basic_shader.h engine/primitive/mesh.h engine/primitive/mesh_loader.cpp engine/primitive/mesh_loader.h engine/vendor/obj_loader_bly7.h engine/primitive/texture.h engine/mesh/vertex.h engine/mesh/texture.h engine/primitive/entity.h engine/primitive/camera.h engine/primitive/model.cpp engine/primitive/model.h engine/primitive/camera.cpp engine/primitive/entity.cpp)
 target_link_libraries (track_recognizer
         ${OPENGL_LIBRARIES}
         ${COCOA_LIBRARY}

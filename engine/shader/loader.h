@@ -6,13 +6,14 @@
 #define TRACK_RECOGNIZER_SHADER_LOADER_H
 
 #include <GL/glew.h>
-#include "../error.h"
+#include <error.h>
+#include <optional>
 
 namespace engine { namespace shader {
 
 class Loader {
 public:
-    std::tuple<const GLchar *, engine::Error *> Load(const GLchar *shaderPath);
+    std::tuple<const GLchar *, std::optional<engine::Error>> Load(const GLchar *shaderPath);
 };
 
 }}

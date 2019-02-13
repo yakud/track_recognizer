@@ -9,22 +9,22 @@
 
 namespace engine { namespace shader{
 
-engine::Error *InitBasicShader(Shader *shader) {
-    Error *err;
+std::optional<engine::Error> InitBasicShader(Shader *shader) {
+    std::optional<engine::Error> err;
 
-    if (err = shader->AddShader(GL_VERTEX_SHADER, "res/shader/basic.vert"); err != nullptr) {
+    if (err = shader->AddShader(GL_VERTEX_SHADER, "res/shader/basic.vert"); err) {
         return err;
     }
 
-    if (err = shader->AddShader(GL_FRAGMENT_SHADER, "res/shader/basic.frag"); err != nullptr) {
+    if (err = shader->AddShader(GL_FRAGMENT_SHADER, "res/shader/basic.frag"); err) {
         return err;
     }
 
-    if (err = shader->Link(); err != nullptr) {
+    if (err = shader->Link(); err) {
         return err;
     }
 
-    return nullptr;
+    return std::nullopt;
 };
 
 }}
